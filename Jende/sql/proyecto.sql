@@ -161,6 +161,8 @@ EXECUTE FUNCTION jende.fn_actualizar_stock();
 
 
 SELECT * FROM jende.clients;
+SELECT * FROM jende.order_items;
+SELECT * FROM jende.products;
 
 INSERT INTO jende.clients (id, name, email)
 VALUES (1, 'Cliente Test', 'cliente@test.com');
@@ -168,9 +170,21 @@ VALUES (1, 'Cliente Test', 'cliente@test.com');
 INSERT INTO jende.users (id, username, role,  password_hash)
 VALUES (1, 'Admin', 'cajero',1);
 
+REVOKE DELETE ON jende.orders FROM "jende_employee";
+REVOKE DELETE ON jende.products FROM "jende_employee";
+REVOKE DELETE ON jende.order_items FROM "jende_employee";
+REVOKE DELETE ON jende.clients FROM "jende_employee";
+
 SELECT * FROM jende.products;
 
 SELECT * FROM jende.order_items;
+
+SET role jende_employee;
+SET role jende_admin;
+
+DELETE FROM jende.orders;
+
+RESET ROLE;
 
 
 

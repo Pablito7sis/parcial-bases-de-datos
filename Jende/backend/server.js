@@ -10,11 +10,11 @@ app.use(express.json());
 
 // --- Conexión directa a PostgreSQL ---
 const pool = new Pool({
-  user: "postgres",        // 👈 tu usuario
-  password: "Pablito7617", // 👈 tu contraseña
-  host: "localhost",       // 👈 tu host
-  port: 5432,              // 👈 tu puerto (default)
-  database: "proyecto"     // 👈 tu base de datos
+  user: "postgres",        
+  password: "Pablito7617",
+  host: "localhost",       
+  port: 5432,              
+  database: "proyecto"     
 });
 
 // --- Endpoint de prueba ---
@@ -90,8 +90,6 @@ app.get("/api/orders/:id/invoice", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-
 // --- Productos ---
 app.get("/api/products", async (req, res) => {
   try {

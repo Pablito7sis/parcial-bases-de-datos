@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "./api"; // tu instancia axios
+import api from "./api"; 
 
 export default function Orders() {
   const [orders, setOrders] = useState([]);
